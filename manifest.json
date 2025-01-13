@@ -1,0 +1,9 @@
+{
+  "id": "emoji-picker",
+  "name": "Emoji Picker",
+  "description": "An extension to get emojis",
+  "creator_name": "Whiskers Apps",
+  "creator_link": "https://github.com/Whiskers-Apps",
+  "repository_link": "https://github.com/Whiskers-Apps/tigris-emoji",
+  "settings": []
+}
