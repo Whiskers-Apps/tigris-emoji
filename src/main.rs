@@ -1,20 +1,17 @@
-use std::process::exit;
-
 use convert_case::{Case, Casing};
 use sniffer_rs::sniffer::Sniffer;
-use tigris_rs::features::{
+use tigris_core::features::{
     actions::{CopyTextAction, ResultAction},
-    api::{get_extension_request, send_search_results},
+    api::{get_request, return_search_results},
     search_results::SearchResult,
 };
 
 fn main() {
-    let request = get_extension_request().get_results_request.unwrap();
+    let request = get_request().unwrap().get_results_request.unwrap();
     let search_text = &request.search_text;
 
     if search_text.is_empty() {
-        send_search_results(&vec![]);
-        exit(0);
+        return_search_results(&vec![]);
     }
 
     let sniffer = Sniffer::new();
@@ -33,6 +30,5 @@ fn main() {
         })
         .collect::<Vec<SearchResult>>();
 
-    send_search_results(&results);
-    exit(0);
+    return_search_results(&results);
 }
